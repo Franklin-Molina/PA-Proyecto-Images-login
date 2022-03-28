@@ -1,40 +1,84 @@
 {% extends 'base.html' %}
 {% block titulo %}
-    Crear Usuario
+Crear Usuario
 {% endblock %}
 
 {% block contenido %}
 
 <div class="content">
-        
-                <h1>Crear User</h1>
-                {% with messages = get_flashed_messages()%}
-                {% if messages%}
-                <ul class="alert alert-danger">
-                    {% for message in messages%}
-                        <li> {{message}}</li>
-                    {% endfor%}
-                </ul>
-                {% endif%}
-            {% endwith %}
 
-                <form action="{{url_for('createUser') }}" method="POST">
-                    <div>
-                        <label for="">Nombre</label>
-                        <input type="text" name="name" value="{{name}}" >
+  
+   
+
+
+    <div class="" style="display: flex; justify-content: center;  ">
+        
+        <div style="padding: 10px;margin: 10px;border: 3px solid rgb(64, 90, 79); border-radius: 10px;" >
+            <h1 style="text-align: center;">  Crear User</h1>
+            {% with messages = get_flashed_messages()%}
+            {% if messages %}
+            <ul class="alert alert-danger">
+                {% for message in messages%}
+                <li>  {{message}}</li>
+                {% endfor%}
+            </ul>
+            {% endif%}
+            {% endwith %}
+              
+            <form action="{{url_for('createUser') }}" method="POST">
+                <div class="mb-3">
+                  <label for="exampleInputName" class="form-label"> Nombre</label>
+                  <input type="text" class="form-control"  aria-describedby="emailHelp"  name="name" value="{{name}}" >
+              
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{email}}">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1 " name="password" value="{{password}}">
+                  <div class="form-text">Su contraseña debe tener entre 8 y 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales ni emoji.</div>
+                </div>
+                <div style="display: flex; justify-content: center;  ">
+                    <div style="padding: 10px;margin: 10px;">
+                        <button type="submit" class="btn btn-dark" style="text-align: center;">Registrar</button>
+                        <a  class="btn btn-dark" href="{{url_for('index') }}"> Login</a>
                     </div>
-                    <div>
-                        <label for="">Email</label>
-                        <input type="email" name="email" value="{{email}}" >
-                    </div>
-                    <div>
-                        <label for="">Password</label>
-                        <input type="password" name="password" value="{{password}}">
-                    </div>
-                   
-                    <button type="submit">Guardar</button>
-                </form>
+                </div>
+                
+                
+              </form>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- <form action="{{url_for('createUser') }}" method="POST">
+        <div>
+            <label for="">Nombre</label>
+            <input type="text" name="name" value="{{name}}">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="email" value="{{email}}">
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" name="password" value="{{password}}">
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form> -->
+
+
+
+
 
 </div>
 
-{% endblock  %}
+{% endblock %}

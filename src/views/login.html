@@ -9,7 +9,12 @@
         
                 <h1>Login</h1>
 
-                <a href="{{url_for('createUser') }}">Crear usuario</a>
+                <form  method="post"></form>
+                <input type="email" name="email"> 
+                <input type="password" name="password"> 
+
+                <button class="btn btn-info" type="submit"> Ingresar</button>
+                <a class="btn btn-dark" href="{{url_for('createUser') }}">Crear usuario</a>
                
 
 {% endblock  %}
