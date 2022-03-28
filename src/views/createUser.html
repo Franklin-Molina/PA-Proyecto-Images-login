@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Crear Usuario
+{% endblock %}
+
+{% block contenido %}
+
+<div class="content">
+        
+                <h1>Crear User</h1>
+                {% with messages = get_flashed_messages()%}
+                {% if messages%}
+                <ul class="alert alert-danger">
+                    {% for message in messages%}
+                        <li> {{message}}</li>
+                    {% endfor%}
+                </ul>
+                {% endif%}
+            {% endwith %}
+
+                <form action="{{url_for('createUser') }}" method="POST">
+                    <div>
+                        <label for="">Nombre</label>
+                        <input type="text" name="name" value="{{name}}" >
+                    </div>
+                    <div>
+                        <label for="">Email</label>
+                        <input type="email" name="email" value="{{email}}" >
+                    </div>
+                    <div>
+                        <label for="">Password</label>
+                        <input type="password" name="password" value="{{password}}">
+                    </div>
+                   
+                    <button type="submit">Guardar</button>
+                </form>
+
+</div>
+
+{% endblock  %}
